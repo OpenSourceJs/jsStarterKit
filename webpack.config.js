@@ -40,7 +40,7 @@ const config = {
       children: true,
       async: true
     }),
-    new CleanWebpackPlugin(['dist']),
+    new CleanWebpackPlugin(['./client/dist/']),
     new webpack.LoaderOptionsPlugin({
       debug: true
     }),
@@ -59,11 +59,11 @@ const config = {
       meta: [
         {
           name: 'dscription',
-          content: 'contact management'
+          content: ''
         },
         {
           name: 'keyword',
-          content: 'contact address'
+          content: ''
         },
         {
           name: 'author',
