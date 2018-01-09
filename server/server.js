@@ -8,7 +8,7 @@ import { clientErr, serverErr } from './middlewares/errors.js';
 const server = express();
 
 server.use(express.static(path.join(__dirname, '../client/dist')));
-
+// hheh
 //middleware
 middleware(server);
 

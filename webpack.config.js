@@ -16,12 +16,11 @@ const fontLoaderConfig = {
 };
 
 const config = {
-  entry: {
-    main: `${APP_DIR}/main.jsx`
-  },
+  entry: ['babel-polyfill', 'react-hot-loader/patch', `${APP_DIR}/main.jsx`],
   output: {
     path: BUILD_DIR,
-    filename: 'js/[name].js'
+    filename: 'js/[name].js',
+    publicPath: '/'
   },
   cache: true,
   devtool: 'inline-source-map',
@@ -50,13 +49,24 @@ const config = {
       }
     }),
     new HtmlWebpackPlugin({
-      title: 'contact',
+      title: 'JsStaterKit',
       xhtml: true,
+      hash: true,
       inject: false,
+      cache: true,
+      showErrors: true,
+
       template: htmlTemplate,
       appMountId: 'root-container',
+      mobile: true,
+      lang: 'en-US',
       links: ['https://fonts.googleapis.com/css?family=Roboto:300,400,500'],
       meta: [
+        {
+          httpEquiv: 'Content-Security-Policy',
+          content:
+            "default-src 'none'; font-src 'self' data: https://fonts.googleapis.com/css?family=Roboto:300,400,500;"
+        },
         {
           name: 'dscription',
           content: ''
